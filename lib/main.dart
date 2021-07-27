@@ -11,14 +11,6 @@ import 'views/register.dart';
 import '../services/auth.dart';
 
 
-/**
- * Main File will be used for :
- * 1. Entry point for the entire application.
- * 2. Initializing backend services in firebase.
- * 3. Declaring providers for state management.
- * 4. Declaring named routes.
- */
-
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
