@@ -14,8 +14,6 @@ class DashBoardTab extends StatefulWidget {
 class _DashBoardTabState extends State<DashBoardTab> {
   @override
   Widget build(BuildContext context) {
-    // var listBooks =
-    //     Provider.of<AllFirebaseBooks>(context, listen: false).firebaseBooksList;
     return SingleChildScrollView(
         padding: EdgeInsets.all(20),
         child: Column(
@@ -38,9 +36,10 @@ class _DashBoardTabState extends State<DashBoardTab> {
                 classDetails: 'XI',
                 logoPath: 'assets/images/gyan-niketan-logo.jpg',
                 message:
-                'St. Thomas School invites application to class XI for the session 2021-22.',
-                name: 'St. Thomas School',
-                vacancies: '108'),
+                'Gyan Niketan invites application to class XI for the session 2021-22.',
+                name: 'Gyan Niketan',
+                vacancies: '108',
+              rating: '9.8',),
             SchoolCard(
                 imagePath: 'assets/images/dps-details.png',
                 classDetails: 'IX',
@@ -48,15 +47,17 @@ class _DashBoardTabState extends State<DashBoardTab> {
                 message:
                 'Delhi Public School invites application to class IX for the session 2021-22.',
                 name: 'Delhi Public School',
-                vacancies: '63'),
+                vacancies: '63',
+                rating: '8.7',),
             SchoolCard(
                 imagePath: 'assets/images/mount-carmel.jpeg',
                 classDetails: 'VI',
                 logoPath: 'assets/images/carmel_logo.jpg',
                 message:
-                'Jawahar Vidya Mandir invites application to class VI for the session 2021-22.',
-                name: 'Jawahar Vidya Mandir',
-                vacancies: '54'),
+                'Mount Carmel High School invites application to class VI for the session 2021-22.',
+                name: 'Mount Carmel School',
+                vacancies: '54',
+                rating: '9.1',),
           ],
         ));
   }
@@ -73,7 +74,7 @@ class DashboardTopBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Text(
-          'Hello, Gaurav!',
+          'Hello, Purnendu!',
           style: kHeading3,
         ),
         Spacer(),
@@ -112,6 +113,8 @@ class SchoolCard extends StatefulWidget {
   String vacancies;
   String classDetails;
   String message;
+  String rating;
+
 
   SchoolCard(
       {required this.imagePath,
@@ -119,7 +122,9 @@ class SchoolCard extends StatefulWidget {
         required this.logoPath,
         required this.message,
         required this.name,
-        required this.vacancies});
+        required this.vacancies,
+        required this.rating
+        });
   @override
   _SchoolCardState createState() => _SchoolCardState();
 }
@@ -167,7 +172,7 @@ class _SchoolCardState extends State<SchoolCard> {
                       ),
                       Spacer(),
                       Text(
-                        'Class ' + widget.classDetails,
+                         widget.rating + '/10',
                         style: kHeading4.copyWith(
                             fontSize: 16, fontWeight: FontWeight.bold),
                       )
@@ -176,33 +181,26 @@ class _SchoolCardState extends State<SchoolCard> {
                 ),
                 Divider(),
                 Container(
-                  padding: EdgeInsets.only(left: 12, bottom: 0),
+                  padding: EdgeInsets.only(left: 12, bottom: 6,top: 12,right: 12),
                   alignment: Alignment.centerLeft,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        widget.vacancies + ' Vacancies',
+                        widget.vacancies + ' vacancies',
                         style: kHeading2.copyWith(
                             color: Colors.blueGrey,
                             fontSize: 16,
                             fontWeight: FontWeight.w600),
                       ),
-                      IconButton(
-                          icon: Icon(
-                            bookmarkClicked
-                                ? CupertinoIcons.bookmark_fill
-                                : CupertinoIcons.bookmark,
-                            color: bookmarkClicked
-                                ? Colors.orange
-                                : Colors.blueGrey,
-                            size: 18,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              bookmarkClicked = !bookmarkClicked;
-                            });
-                          })
+                      Text(
+                        'Class ' + widget.classDetails,
+                        style: kHeading2.copyWith(
+                            color: Colors.blueGrey,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold),
+                      ),
+
                     ],
                   ),
                 ),

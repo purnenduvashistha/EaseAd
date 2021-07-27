@@ -11,6 +11,8 @@ import 'views/register.dart';
 import '../services/auth.dart';
 import 'views/tabs/dashboard.dart';
 import 'views/tabs/user.dart';
+import 'views/home.dart';
+import 'models/tabs.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -59,9 +61,9 @@ class MyApp extends StatelessWidget {
           create: (context) => _auth,
         ),
           /*TODO: build tab views for bottom navigation bar*/
-         // ChangeNotifierProvider<TabViews>(
-         //   create: (context) => TabViews(),
-         // ),
+         ChangeNotifierProvider<TabViews>(
+           create: (context) => TabViews(),
+         ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -72,6 +74,7 @@ class MyApp extends StatelessWidget {
           RegisterPage.id: (context) => RegisterPage(),
           DashBoardTab.id: (context) => DashBoardTab(),
           UserTab.id: (context) => UserTab(),
+          HomePage.id: (context) => HomePage(),
 
 
         },

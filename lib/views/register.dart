@@ -10,7 +10,7 @@ import '../themes.dart';
 import '../widgets/inputTextFields.dart';
 import '../widgets/submitBtn.dart';
 import 'login.dart';
-import 'tabs/dashboard.dart';
+import 'home.dart';
 
 class RegisterPage extends StatefulWidget {
   static String id = 'registerPage';
@@ -143,11 +143,11 @@ class _BodyRegisterPageState extends State<BodyRegisterPage> {
                         setState(() {
                           _isLoading = false;
                         });
-                        // if (result)
-                        //   Navigator.popAndPushNamed(context, HomePage.id);
-                        // else {
-                        //   passwordController.clear();
-                        // }
+                        if (result)
+                          Navigator.popAndPushNamed(context, HomePage.id);
+                        else {
+                          passwordController.clear();
+                        }
 
                       }
                     },

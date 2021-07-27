@@ -11,7 +11,7 @@ import '../widgets/choiceButtons.dart';
 import '../widgets/inputTextFields.dart';
 import '../widgets/submitBtn.dart';
 import 'register.dart';
-import 'tabs/dashboard.dart';
+import 'home.dart';
 
 class LoginPage extends StatefulWidget {
   static String id = 'loginPage';
@@ -90,8 +90,8 @@ class _BodyLoginPageState extends State<BodyLoginPage> {
                           setState(() {
                             _isLoading = false;
                           });
-                          // if (result)
-                          //   Navigator.popAndPushNamed(context, HomePage.id);
+                          if (result)
+                            Navigator.popAndPushNamed(context, HomePage.id);
                         },
                         iconData: FontAwesomeIcons.google,
                       ),
@@ -158,11 +158,11 @@ class _BodyLoginPageState extends State<BodyLoginPage> {
                         setState(() {
                           _isLoading = false;
                         });
-                        // if (result)
-                        //   Navigator.popAndPushNamed(context, HomePage.id);
-                        // else {
-                        //   passwordController.clear();
-                        // }
+                        if (result)
+                          Navigator.popAndPushNamed(context, HomePage.id);
+                        else {
+                          passwordController.clear();
+                        }
 
                       }
                     },
