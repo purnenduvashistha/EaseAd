@@ -8,9 +8,9 @@ import '../constants.dart';
 import '../services/auth.dart';
 import '../services/validation.dart';
 import '../widgets/clayContainerHighlight.dart';
-
 import '../widgets/inputTextFields.dart';
 import '../widgets/submitBtn.dart';
+import '../widgets/imageUpload.dart';
 
 class ProfilePage extends StatefulWidget {
   static String id = 'profilePage';
@@ -85,7 +85,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           child: ClayContainerHighlight(
                               onTap: () {
                                 print('here');
-                                //Navigator.pushNamed(context, ImageUploader.id);
+                                Navigator.pushNamed(context, ImageUploader.id);
                               },
                               iconData: CupertinoIcons.camera),
                         )
