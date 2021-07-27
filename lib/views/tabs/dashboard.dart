@@ -5,6 +5,64 @@ import '../../constants.dart';
 import '../../widgets/clayContainerHighlight.dart';
 import '../../widgets/submitBtn.dart';
 
+class DashBoardTab extends StatefulWidget {
+  @override
+  _DashBoardTabState createState() => _DashBoardTabState();
+}
+
+class _DashBoardTabState extends State<DashBoardTab> {
+  @override
+  Widget build(BuildContext context) {
+    // var listBooks =
+    //     Provider.of<AllFirebaseBooks>(context, listen: false).firebaseBooksList;
+    return SingleChildScrollView(
+        padding: EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            DashboardTopBar(),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              'Current Openings',
+              style: kHeading1,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            SchoolCard(
+                imagePath: 'assets/images/gyan-niketan.jpg',
+                classDetails: 'I-VIII',
+                logoPath: 'assets/images/gyan-niketan-logo.jpg',
+                message:
+                'Gyan Niketan invites application to class I-VIII for the session 2021-22.',
+                name: 'Gyan Niketan',
+                vacancies: '108',
+                rating: 9.7),
+            SchoolCard(
+                imagePath: 'assets/images/dps-details.png',
+                classDetails: 'I-V',
+                logoPath: 'assets/images/dps-logo.jpg',
+                message:
+                'Delhi Public School invites application to class I-V for the session 2021-22.',
+                name: 'Delhi Public School',
+                vacancies: '250',
+                rating: 9.1),
+            SchoolCard(
+                imagePath: 'assets/images/mount-carmel.jpeg',
+                classDetails: 'VI',
+                logoPath: 'assets/images/carmel_logo.jpg',
+                message:
+                'Mount Carmel High School invites application to class I-VIII for the session 2021-22.',
+                name: 'Mount Carmel High School',
+                vacancies: '150',
+                rating: 8.4),
+          ],
+        ));
+  }
+}
 
 class DashboardTopBar extends StatelessWidget {
   const DashboardTopBar({
