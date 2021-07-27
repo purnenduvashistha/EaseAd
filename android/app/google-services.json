@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "383530226621",
+    "project_id": "easead-ed1be",
+    "storage_bucket": "easead-ed1be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:383530226621:android:cad17c0fcc1458bb9ff8d4",
+        "android_client_info": {
+          "package_name": "com.Purnendu.easy_admission"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "383530226621-pqjgb4pus8a8thf3cughtt2t1bdu18jq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAc9bgq1bHeY85COZzxdFrcVeq3X1Vb55U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "383530226621-pqjgb4pus8a8thf3cughtt2t1bdu18jq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
