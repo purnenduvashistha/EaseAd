@@ -65,7 +65,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: UserTab.id,
+        initialRoute: LoginPage.id,
         routes: {
 
           LoginPage.id: (context) => LoginPage(),
