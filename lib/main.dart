@@ -65,9 +65,10 @@ class MyApp extends StatelessWidget {
         Provider<Auth>(
           create: (context) => _auth,
         ),
-         ChangeNotifierProvider<TabViews>(
-           create: (context) => TabViews(),
-         ),
+          /*TODO: build tab views for bottom navigation bar*/
+         // ChangeNotifierProvider<TabViews>(
+         //   create: (context) => TabViews(),
+         // ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
