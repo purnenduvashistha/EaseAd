@@ -1,46 +1,53 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:provider/provider.dart';
 
-import '../constants.dart';
 import '../services/auth.dart';
 import '../services/validation.dart';
 import '../themes.dart';
-import '../widgets/choiceButtons.dart';
 import '../widgets/inputTextFields.dart';
 import '../widgets/submitBtn.dart';
-import 'register.dart';
+import 'login.dart';
 
-class LoginPage extends StatefulWidget {
-  static String id = 'loginPage';
+class RegisterPage extends StatefulWidget {
+  static String id = 'registerPage';
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
+  @override
+  void initState() {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: kStatusBarColor,
+        statusBarIconBrightness: kStatusBarIconBrightness));
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: BodyLoginPage(),
+        body: BodyRegisterPage(),
       ),
     );
   }
 }
 
-class BodyLoginPage extends StatefulWidget {
+class BodyRegisterPage extends StatefulWidget {
   @override
-  _BodyLoginPageState createState() => _BodyLoginPageState();
+  _BodyRegisterPageState createState() => _BodyRegisterPageState();
 }
 
-class _BodyLoginPageState extends State<BodyLoginPage> {
+class _BodyRegisterPageState extends State<BodyRegisterPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  final _signInFormKey = GlobalKey<FormState>();
+
+  final _registerFormKey = GlobalKey<FormState>();
 
   bool _isLoading = false;
-
   @override
   Widget build(BuildContext context) {
     return ModalProgressHUD(
@@ -56,61 +63,34 @@ class _BodyLoginPageState extends State<BodyLoginPage> {
               image: kBackgroundImage,
             ),
             child: Form(
-              key: _signInFormKey,
+              key: _registerFormKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'Login',
-                    style: kHeading1,
+                    'Register',
+                    style: GoogleFonts.montserrat(
+                        fontWeight: FontWeight.w500,
+                        textStyle: TextStyle(fontSize: 25)),
                   ),
                   Spacer(flex: 1),
                   Text(
-                    'Access account',
-                    style: kHeading2,
+                    'Create account',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 18,
+                        color: Colors.grey[400]),
                   ),
                   Spacer(
                     flex: 2,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      ChoiceButtons(
-                          iconData: FontAwesomeIcons.github, onTap: () {}),
-                      Spacer(),
-                      ChoiceButtons(
-                        onTap: () async {
-                          final auth =
-                          Provider.of<Auth>(context, listen: false);
-                          setState(() {
-                            _isLoading = true;
-                          });
-                          var result = await auth.signInGoogle(context);
-                          setState(() {
-                            _isLoading = false;
-                          });
-                          // if (result)
-                          //   Navigator.popAndPushNamed(context, HomePage.id);
-                        },
-                        iconData: FontAwesomeIcons.google,
-                      ),
-                    ],
-                  ),
-                  Spacer(
-                    flex: 1,
-                  ),
-                  Text(
-                    'or Login with Email',
-                    style: kHeading4,
-                  ),
-                  Spacer(
-                    flex: 1,
                   ),
                   Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
                         'Email',
-                        style: kHeading3,
+                        style: GoogleFonts.montserrat(
+                            textStyle: TextStyle(
+                                fontWeight: FontWeight.w500, fontSize: 16)),
                       )),
                   Spacer(
                     flex: 1,
@@ -128,7 +108,12 @@ class _BodyLoginPageState extends State<BodyLoginPage> {
                   ),
                   Align(
                       alignment: Alignment.centerLeft,
-                      child: Text('Password', style: kHeading3)),
+                      child: Text(
+                        'Password',
+                        style: GoogleFonts.montserrat(
+                            textStyle: TextStyle(
+                                fontWeight: FontWeight.w500, fontSize: 16)),
+                      )),
                   Spacer(
                     flex: 1,
                   ),
@@ -145,12 +130,12 @@ class _BodyLoginPageState extends State<BodyLoginPage> {
                   ),
                   SubmitButton(
                     onTap: () async {
-                      if (_signInFormKey.currentState!.validate()) {
+                      if (_registerFormKey.currentState!.validate()) {
                         final auth = Provider.of<Auth>(context, listen: false);
                         setState(() {
                           _isLoading = true;
                         });
-                        var result = await auth.signIn(
+                        var result = await auth.register(
                             context: context,
                             email: emailController.text.toString().trim(),
                             password: emailController.text.toString().trim());
@@ -164,24 +149,27 @@ class _BodyLoginPageState extends State<BodyLoginPage> {
                         // }
                       }
                     },
-                    text: 'Sign In',
+                    text: 'Register',
                   ),
                   Spacer(
                     flex: 1,
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.popAndPushNamed(context, RegisterPage.id);
+                      Navigator.popAndPushNamed(context, LoginPage.id);
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Don't have an account?",
-                          style: kHeading4,
+                          "Already have an account?",
+                          style: GoogleFonts.montserrat(
+                              textStyle: TextStyle(
+                                  color: Colors.blueGrey[400],
+                                  fontWeight: FontWeight.w400)),
                         ),
                         Text(
-                          " Register",
+                          " Login",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.blueGrey[600],

@@ -1,3 +1,4 @@
+import 'package:easy_admission/views/register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +7,7 @@ import 'package:provider/provider.dart';
 
 import 'themes.dart';
 import 'views/login.dart';
+import 'views/register.dart';
 import '../services/auth.dart';
 
 
@@ -73,6 +75,7 @@ class MyApp extends StatelessWidget {
         routes: {
 
           LoginPage.id: (context) => LoginPage(),
+          RegisterPage.id: (context) => RegisterPage(),
 
 
         },
