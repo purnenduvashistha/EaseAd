@@ -10,6 +10,7 @@ import '../themes.dart';
 import '../widgets/inputTextFields.dart';
 import '../widgets/submitBtn.dart';
 import 'login.dart';
+import 'tabs/dashboard.dart';
 
 class RegisterPage extends StatefulWidget {
   static String id = 'registerPage';
@@ -147,6 +148,7 @@ class _BodyRegisterPageState extends State<BodyRegisterPage> {
                         // else {
                         //   passwordController.clear();
                         // }
+
                       }
                     },
                     text: 'Register',

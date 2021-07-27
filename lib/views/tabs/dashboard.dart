@@ -6,6 +6,7 @@ import '../../widgets/clayContainerHighlight.dart';
 import '../../widgets/submitBtn.dart';
 
 class DashBoardTab extends StatefulWidget {
+  static String id="dashBoardTab";
   @override
   _DashBoardTabState createState() => _DashBoardTabState();
 }
@@ -34,31 +35,28 @@ class _DashBoardTabState extends State<DashBoardTab> {
             ),
             SchoolCard(
                 imagePath: 'assets/images/gyan-niketan.jpg',
-                classDetails: 'I-VIII',
+                classDetails: 'XI',
                 logoPath: 'assets/images/gyan-niketan-logo.jpg',
                 message:
-                'Gyan Niketan invites application to class I-VIII for the session 2021-22.',
-                name: 'Gyan Niketan',
-                vacancies: '108',
-                rating: 9.7),
+                'St. Thomas School invites application to class XI for the session 2021-22.',
+                name: 'St. Thomas School',
+                vacancies: '108'),
             SchoolCard(
                 imagePath: 'assets/images/dps-details.png',
-                classDetails: 'I-V',
+                classDetails: 'IX',
                 logoPath: 'assets/images/dps-logo.jpg',
                 message:
-                'Delhi Public School invites application to class I-V for the session 2021-22.',
+                'Delhi Public School invites application to class IX for the session 2021-22.',
                 name: 'Delhi Public School',
-                vacancies: '250',
-                rating: 9.1),
+                vacancies: '63'),
             SchoolCard(
                 imagePath: 'assets/images/mount-carmel.jpeg',
                 classDetails: 'VI',
                 logoPath: 'assets/images/carmel_logo.jpg',
                 message:
-                'Mount Carmel High School invites application to class I-VIII for the session 2021-22.',
-                name: 'Mount Carmel High School',
-                vacancies: '150',
-                rating: 8.4),
+                'Jawahar Vidya Mandir invites application to class VI for the session 2021-22.',
+                name: 'Jawahar Vidya Mandir',
+                vacancies: '54'),
           ],
         ));
   }
@@ -75,7 +73,7 @@ class DashboardTopBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Text(
-          'Hello, Purnendu!',
+          'Hello, Gaurav!',
           style: kHeading3,
         ),
         Spacer(),
@@ -114,7 +112,6 @@ class SchoolCard extends StatefulWidget {
   String vacancies;
   String classDetails;
   String message;
-  double rating;
 
   SchoolCard(
       {required this.imagePath,
@@ -122,13 +119,13 @@ class SchoolCard extends StatefulWidget {
         required this.logoPath,
         required this.message,
         required this.name,
-        required this.vacancies,
-        required this.rating});
+        required this.vacancies});
   @override
   _SchoolCardState createState() => _SchoolCardState();
 }
 
 class _SchoolCardState extends State<SchoolCard> {
+  bool bookmarkClicked = false;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -191,14 +188,21 @@ class _SchoolCardState extends State<SchoolCard> {
                             fontSize: 16,
                             fontWeight: FontWeight.w600),
                       ),
-
-                      Text(
-                        widget.vacancies + '/10',
-                        style: kHeading2.copyWith(
-                            color: Colors.blueGrey,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600),
-                      ),
+                      IconButton(
+                          icon: Icon(
+                            bookmarkClicked
+                                ? CupertinoIcons.bookmark_fill
+                                : CupertinoIcons.bookmark,
+                            color: bookmarkClicked
+                                ? Colors.orange
+                                : Colors.blueGrey,
+                            size: 18,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              bookmarkClicked = !bookmarkClicked;
+                            });
+                          })
                     ],
                   ),
                 ),

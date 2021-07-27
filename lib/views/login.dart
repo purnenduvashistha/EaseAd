@@ -11,6 +11,7 @@ import '../widgets/choiceButtons.dart';
 import '../widgets/inputTextFields.dart';
 import '../widgets/submitBtn.dart';
 import 'register.dart';
+import 'tabs/dashboard.dart';
 
 class LoginPage extends StatefulWidget {
   static String id = 'loginPage';
@@ -162,6 +163,7 @@ class _BodyLoginPageState extends State<BodyLoginPage> {
                         // else {
                         //   passwordController.clear();
                         // }
+
                       }
                     },
                     text: 'Sign In',

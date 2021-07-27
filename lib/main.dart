@@ -9,7 +9,8 @@ import 'themes.dart';
 import 'views/login.dart';
 import 'views/register.dart';
 import '../services/auth.dart';
-
+import 'views/tabs/dashboard.dart';
+import 'views/tabs/user.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -64,11 +65,13 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: LoginPage.id,
+        initialRoute: UserTab.id,
         routes: {
 
           LoginPage.id: (context) => LoginPage(),
           RegisterPage.id: (context) => RegisterPage(),
+          DashBoardTab.id: (context) => DashBoardTab(),
+          UserTab.id: (context) => UserTab(),
 
 
         },
