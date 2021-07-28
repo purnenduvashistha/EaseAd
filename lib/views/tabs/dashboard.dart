@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../constants.dart';
 import '../../widgets/clayContainerHighlight.dart';
 import '../../widgets/submitBtn.dart';
+import '../details.dart';
 
 class DashBoardTab extends StatefulWidget {
   static String id="dashBoardTab";
@@ -135,7 +136,7 @@ class _SchoolCardState extends State<SchoolCard> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        //Navigator.pushNamed(context, SchoolDetailsPage.id);
+        Navigator.pushNamed(context, SchoolDetailsPage.id);
       },
       child: Column(
         children: [

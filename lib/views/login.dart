@@ -76,9 +76,9 @@ class _BodyLoginPageState extends State<BodyLoginPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      ChoiceButtons(
-                          iconData: FontAwesomeIcons.github, onTap: () {}),
-                      Spacer(),
+                      // ChoiceButtons(
+                      //     iconData: FontAwesomeIcons.github, onTap: () {}),
+                      // Spacer(),
                       ChoiceButtons(
                         onTap: () async {
                           final auth =
@@ -92,8 +92,12 @@ class _BodyLoginPageState extends State<BodyLoginPage> {
                           });
                           if (result)
                             Navigator.popAndPushNamed(context, HomePage.id);
+                          else{
+                            //kShowSnackBar(context, "Not registered", false);
+                          }
                         },
                         iconData: FontAwesomeIcons.google,
+                        width: MediaQuery.of(context).size.width,
                       ),
                     ],
                   ),

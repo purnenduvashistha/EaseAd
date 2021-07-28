@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class ChoiceButtons extends StatelessWidget {
   Function onTap;
   IconData iconData;
-  ChoiceButtons({required this.iconData, required this.onTap});
+  double? width;
+  ChoiceButtons({required this.iconData, required this.onTap, this.width});
   @override
   Widget build(BuildContext context) {
     return Container(

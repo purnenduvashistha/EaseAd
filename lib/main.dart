@@ -1,4 +1,6 @@
+import 'package:easy_admission/views/profile.dart';
 import 'package:easy_admission/views/register.dart';
+import 'package:easy_admission/widgets/imageUpload.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +15,10 @@ import 'views/tabs/dashboard.dart';
 import 'views/tabs/user.dart';
 import 'views/home.dart';
 import 'models/tabs.dart';
+import 'views/profile.dart';
+import 'widgets/imageUpload.dart';
+import 'views/details.dart';
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -75,6 +81,9 @@ class MyApp extends StatelessWidget {
           DashBoardTab.id: (context) => DashBoardTab(),
           UserTab.id: (context) => UserTab(),
           HomePage.id: (context) => HomePage(),
+          ProfilePage.id: (context) => ProfilePage(),
+          ImageUploader.id: (context) => ImageUploader(),
+          SchoolDetailsPage.id: (context) => SchoolDetailsPage(),
 
 
         },

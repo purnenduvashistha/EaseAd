@@ -10,7 +10,7 @@ import '../../constants.dart';
 import '../../services/auth.dart';
 import '../../widgets/clayContainerHighlight.dart';
 import '../login.dart';
-
+import '../tabs/../profile.dart';
 import 'dart:math' as math;
 
 import 'package:clipboard/clipboard.dart';
@@ -42,7 +42,7 @@ class _UserTabState extends State<UserTab> {
               isSpreadAllowed: true,
               iconData: CupertinoIcons.pencil,
               onTap: () {
-                //Navigator.pushNamed(context, ProfilePage.id);
+                Navigator.pushNamed(context, ProfilePage.id);
                 setState(() {});
               },
             ),
@@ -62,7 +62,7 @@ class _UserTabState extends State<UserTab> {
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Image.asset(
-                "assets/images/dp.jpg",
+                "assets/images/dp.png",
                 fit: BoxFit.fill,
               ),
             ),
