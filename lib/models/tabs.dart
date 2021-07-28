@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 
 import '../views/tabs/dashboard.dart';
 import '../views/tabs/user.dart';
+import '../views/tabs/history.dart';
 
 class TabViews extends ChangeNotifier {
   int selectedIndex = 0;
@@ -24,6 +25,9 @@ class TabViews extends ChangeNotifier {
         ob = DashBoardTab();
         break;
       case 1:
+        ob = HistoryTab();
+        break;
+      case 3:
         ob = UserTab();
         break;
     }
