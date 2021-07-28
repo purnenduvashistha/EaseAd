@@ -145,7 +145,8 @@ class _SchoolCardState extends State<SchoolCard> {
           ),
           Container(
             clipBehavior: Clip.hardEdge,
-            decoration: BoxDecoration(boxShadow: [
+            decoration: BoxDecoration(
+                boxShadow: [
               BoxShadow(
                 color: Colors.blueGrey.shade100,
                 blurRadius: 20,
